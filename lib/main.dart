@@ -26,22 +26,41 @@ class MyHomePage extends StatelessWidget {
 
   Recipe recipe = Recipe("label", "url");
   List<Recipe> recipes = [
-    Recipe("num1", "img1"),
-    Recipe("num2", "img2"),
-    Recipe("num3", "img3"),
-    Recipe("num4", "img4"),
-    Recipe("num5", "img5"),
+    Recipe("num1", 'assets/messi1.png'),
+    Recipe("num2", "assets/messi1.png"),
+    Recipe("num3", "assets/messi1.png"),
+    Recipe("num4", "assets/messi1.png"),
+    Recipe("num5", "assets/messi1.png"),
   ];
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("hello")),
-      body: ListView.builder(itemBuilder: (context, index) {
-        return Text(recipes[index].label!);
-      }, itemCount: recipes.length,)
-    );
+        appBar: AppBar(title: const Text("hello")),
+        body: ListView.builder(
+          itemBuilder: (context, index) {
+            return buildRecipeCard(recipes[index]);
+          },
+          itemCount: recipes.length,
+        ));
   }
 }
-ㅇ
+
+Widget buildRecipeCard(Recipe recipe) {
+  return Card(
+      elevation: 3.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+      child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              Image(image: AssetImage(recipe.imageUrl!)),
+              const SizedBox(
+                height: 16.0,
+              ),
+              Text(
+                recipe.label!,
+              )
+            ],
+          )));
+}
