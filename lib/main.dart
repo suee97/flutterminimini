@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterminimini/recipe.dart';
+import 'package:flutterminimini/recipe_detail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,10 +37,17 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("hello")),
+        appBar: AppBar(title: const Text("Barcelona")),
         body: ListView.builder(
           itemBuilder: (context, index) {
-            return buildRecipeCard(recipes[index]);
+            return GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return RecipeDetail(recipe: recipes[index],);
+                  }));
+                },
+                child: buildRecipeCard(recipes[index]));
           },
           itemCount: recipes.length,
         ));
