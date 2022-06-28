@@ -4,8 +4,8 @@ import '../main.dart';
 import '../player.dart';
 import '../player_detail.dart';
 
-class Barcelona extends StatelessWidget {
-  Barcelona({Key? key}) : super(key: key);
+class BarcelonaScreen extends StatelessWidget {
+  BarcelonaScreen({Key? key}) : super(key: key);
 
   List<Player> players = [
     Player("messi", 'assets/messi1.png', Info(35, 5.0)),
@@ -28,7 +28,7 @@ class Barcelona extends StatelessWidget {
                     return PlayerDetail(player: players[index],);
                   }));
                 },
-                child: buildRecipeCard(players[index]));
+                child: playerCard(players[index]));
           },
           itemCount: players.length,
         ));

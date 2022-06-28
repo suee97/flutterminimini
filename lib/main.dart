@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterminimini/custom_button.dart';
 import 'package:flutterminimini/player.dart';
-import 'package:flutterminimini/player_detail.dart';
-import 'package:flutterminimini/screens/barcelona.dart';
 import 'package:flutterminimini/screens/home.dart';
 
 void main() {
@@ -24,7 +21,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-Widget buildRecipeCard(Player recipe) {
+Widget playerCard(Player recipe) {
   return Card(
       elevation: 3.0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),

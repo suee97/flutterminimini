@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterminimini/screens/barcelona.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -7,12 +8,12 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Main")),
-      body: mainScreenContent(),
+      body: mainScreenContent(context),
     );
   }
 }
 
-Widget mainScreenContent() {
+Widget mainScreenContent(BuildContext context) {
   return Column(
     children: [
       Container(
@@ -30,43 +31,53 @@ Widget mainScreenContent() {
               color: Colors.black),
         ),
       ),
-      SizedBox(height: 80,),
-      Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            litteBox("tee"),
-            litteBox("tee"),
-            litteBox("tee"),
-          ],
-        ),
+      const SizedBox(
+        height: 80,
       ),
-      SizedBox(height: 20,),
-      Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            litteBox("tee"),
-            litteBox("tee"),
-            litteBox("FC\nBarcelona"),
-          ],
-        ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          litteBox("Numbering", context, BarcelonaScreen()),
+          litteBox("QR", context, BarcelonaScreen()),
+          litteBox("ToDo", context, BarcelonaScreen()),
+        ],
+      ),
+      const SizedBox(
+        height: 20,
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          litteBox("tee", context, BarcelonaScreen()),
+          litteBox("tee", context, BarcelonaScreen()),
+          litteBox("FC\nBarcelona", context, BarcelonaScreen()),
+        ],
       )
     ],
   );
 }
 
-Widget litteBox(String innerText) {
-  return Container(
-    height: 80,
-    width: 100,
-    decoration:
-        BoxDecoration(border: Border.all(width: 2, color: Colors.deepOrange)),
-    child: Center(
-      child: Text(
+Widget litteBox(String innerText, BuildContext context, Widget screen) {
+  return GestureDetector(
+    onTap: () {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => screen));
+    },
+    child: Container(
+      height: 80,
+      width: 100,
+      decoration: BoxDecoration(
+          border: Border.all(width: 2, color: Colors.deepOrange),
+          color: Colors.deepOrange),
+      child: Center(
+        child: Text(
           innerText,
-        style: const TextStyle(
-          fontSize: 20
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontFamily: "palatino",
+              fontWeight: FontWeight.w700),
         ),
       ),
     ),
