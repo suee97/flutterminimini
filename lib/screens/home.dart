@@ -41,7 +41,7 @@ Widget mainScreenContent(BuildContext context) {
         children: [
           litteBox("Numbering", context, NumberingScreen()),
           litteBox("QR", context, BarcelonaScreen()),
-          litteBox("ToDo", context, BarcelonaScreen()),
+          litteBox("Provider\n(TODO)", context, BarcelonaScreen()),
         ],
       ),
       const SizedBox(
