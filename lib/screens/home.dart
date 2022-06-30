@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterminimini/screens/barcelona.dart';
 
+import 'numbering.dart';
+
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -37,7 +39,7 @@ Widget mainScreenContent(BuildContext context) {
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          litteBox("Numbering", context, BarcelonaScreen()),
+          litteBox("Numbering", context, NumberingScreen()),
           litteBox("QR", context, BarcelonaScreen()),
           litteBox("ToDo", context, BarcelonaScreen()),
         ],
@@ -48,7 +50,7 @@ Widget mainScreenContent(BuildContext context) {
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          litteBox("tee", context, BarcelonaScreen()),
+          litteBox("Api test", context, BarcelonaScreen()),
           litteBox("tee", context, BarcelonaScreen()),
           litteBox("FC\nBarcelona", context, BarcelonaScreen()),
         ],
