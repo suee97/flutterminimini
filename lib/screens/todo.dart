@@ -7,22 +7,33 @@ class TodoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<TodoNotifier>(
-      builder: (context, todoNotifier, child) {
-        final temp = todoNotifier.getTodo();
-        return ListView.builder(
-            itemCount: temp.length,
-            itemBuilder: (BuildContext context, int index) {
-              return TodoTile(content: temp[index]);
-            }
-        );
-      },
-    );
+    return Consumer<TodoNotifier>(builder: (context, todoNotifier, child) {
+      final temp = todoNotifier.getTodo();
+      return Scaffold(
+        appBar: AppBar(
+          title: Text("Provider(TODO)"),
+        ),
+        body: Container(
+          color: Colors.grey,
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(temp[0]),
+            ],
+          ),
+        ),
+      );
+    });
   }
 }
 
 class TodoTile extends StatelessWidget {
-  const TodoTile({Key? key, required this.content}) : super(key: key);
+  const TodoTile({
+    Key? key,
+    required this.content,
+  }) : super(key: key);
 
   final String content;
 
@@ -30,7 +41,11 @@ class TodoTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: ListTile(
-        title: Text(content)
+        title: Text(content),
+        trailing: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.delete_outline),
+        ),
       ),
     );
   }

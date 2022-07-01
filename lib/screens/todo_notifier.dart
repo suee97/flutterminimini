@@ -12,4 +12,10 @@ class TodoNotifier extends ChangeNotifier {
   List<String> getTodo() {
     return _todoList;
   }
+
+  void deleteTodo(int index) {
+    _todoList.removeAt(index);
+    notifyListeners();
+  }
+
 }
