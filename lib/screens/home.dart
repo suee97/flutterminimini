@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterminimini/screens/barcelona.dart';
-
+import 'package:flutterminimini/screens/todo.dart';
 import 'numbering.dart';
 
 class Home extends StatelessWidget {
@@ -41,7 +41,7 @@ Widget mainScreenContent(BuildContext context) {
         children: [
           litteBox("Numbering", context, NumberingScreen()),
           litteBox("QR", context, BarcelonaScreen()),
-          litteBox("Provider\n(TODO)", context, BarcelonaScreen()),
+          litteBox("Provider\n(TODO)", context, TodoScreen()),
         ],
       ),
       const SizedBox(

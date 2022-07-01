@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterminimini/player.dart';
 import 'package:flutterminimini/screens/home.dart';
+import 'package:flutterminimini/screens/todo_notifier.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,12 +13,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter example',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ChangeNotifierProvider(
+      create: (_) => TodoNotifier(),
+      child: MaterialApp(
+        title: 'Flutter example',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: Home(),
       ),
-      home: Home(),
     );
   }
 }
