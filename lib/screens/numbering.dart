@@ -25,7 +25,7 @@ class _NumberingScreenState extends State<NumberingScreen> {
             ),
             GestureDetector(
               onTap: countInc,
-              child: Text(
+              child: const Text(
                 "Click",
                 style: TextStyle(
                     fontSize: 30,

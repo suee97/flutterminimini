@@ -9,44 +9,53 @@ class TodoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<TodoNotifier>(builder: (context, todoNotifier, child) {
       final temp = todoNotifier.getTodo();
+      var _controller = TextEditingController();
       return Scaffold(
         appBar: AppBar(
-          title: Text("Provider(TODO)"),
+          title: const Text("Provider(TODO)"),
         ),
-        body: Container(
-          color: Colors.grey,
-          width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(temp[0]),
-            ],
-          ),
+        body: Column(
+          children: [
+            Container(
+                color: Colors.black,
+                height: 400,
+                width: double.infinity,
+                child: ListView.builder(
+                    itemCount: temp.length,
+                    itemBuilder: (BuildContext context, int i) {
+                      return ListTile(
+                        title: Text(
+                          temp[i],
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 30),
+                        ),
+                        trailing: IconButton(
+                          icon: const Icon(
+                            Icons.delete,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {
+                            todoNotifier.deleteTodo(i);
+                          },
+                        ),
+                      );
+                    })),
+            TextField(
+              controller: _controller,
+              decoration: InputDecoration(
+                hintText: "Input todos",
+                suffixIcon: IconButton(
+                  onPressed: ()=>{
+                    todoNotifier.insertTodo(_controller.text),
+                    _controller.clear()
+                  },
+                  icon: Icon(Icons.send),
+                )
+              ),
+            )
+          ],
         ),
       );
     });
-  }
-}
-
-class TodoTile extends StatelessWidget {
-  const TodoTile({
-    Key? key,
-    required this.content,
-  }) : super(key: key);
-
-  final String content;
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      child: ListTile(
-        title: Text(content),
-        trailing: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.delete_outline),
-        ),
-      ),
-    );
   }
 }
