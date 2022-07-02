@@ -18,7 +18,7 @@ class BarcelonaScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("Experiment")),
+        appBar: AppBar(title: const Text("FC Barcelona")),
         body: ListView.builder(
           itemBuilder: (context, index) {
             return GestureDetector(

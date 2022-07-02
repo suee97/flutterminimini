@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterminimini/screens/api_test.dart';
 import 'package:flutterminimini/screens/barcelona.dart';
 import 'package:flutterminimini/screens/todo.dart';
 import 'numbering.dart';
@@ -50,8 +51,8 @@ Widget mainScreenContent(BuildContext context) {
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          litteBox("Api test", context, BarcelonaScreen()),
-          litteBox("tee", context, BarcelonaScreen()),
+          litteBox("Api test", context, ApiTestScreen()),
+          litteBox("MVVM+API", context, BarcelonaScreen()),
           litteBox("FC\nBarcelona", context, BarcelonaScreen()),
         ],
       )

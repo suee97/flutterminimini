@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutterminimini/notifier/api_test_notifier.dart';
 import 'package:flutterminimini/player.dart';
 import 'package:flutterminimini/screens/home.dart';
-import 'package:flutterminimini/screens/todo_notifier.dart';
+import 'package:flutterminimini/notifier/todo_notifier.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -14,8 +15,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return ChangeNotifierProvider(
-      create: (_) => TodoNotifier(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => TodoNotifier()),
+        ChangeNotifierProvider(create: (_) => ApiTestNotifier())
+      ],
       child: MaterialApp(
         title: 'Flutter example',
         theme: ThemeData(

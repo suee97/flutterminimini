@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterminimini/screens/todo_notifier.dart';
+import 'package:flutterminimini/notifier/todo_notifier.dart';
 import 'package:provider/provider.dart';
 
 class TodoScreen extends StatelessWidget {
