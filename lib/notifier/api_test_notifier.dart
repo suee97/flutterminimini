@@ -1,11 +1,10 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import '../models/api_test_model.dart';
 import 'package:http/http.dart' as http;
 
 class ApiTestNotifier extends ChangeNotifier {
-  String _apiTitle = "";
+  String _apiTitle = "no title";
 
   String getApiRes() {
     return _apiTitle;
@@ -16,8 +15,11 @@ class ApiTestNotifier extends ChangeNotifier {
     var res = await http.get(Uri.parse(url));
     Map<String, dynamic> data = jsonDecode(res.body);
     _apiTitle = data['title'];
+    notifyListeners();
+  }
 
-    print("fetch() called. _apiRes : ${data['userId']}");
+  void clear() {
+    _apiTitle = "no title";
     notifyListeners();
   }
 }

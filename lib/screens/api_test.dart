@@ -13,16 +13,31 @@ class ApiTestScreen extends StatelessWidget {
 
         return Scaffold(
           appBar: AppBar(
-            title: Text("Api Test"),
+            title: const Text("Api Test"),
           ),
           body: Column(
             children: [
-              Text(temp),
+              Container(
+                  width: double.infinity,
+                  height: 200,
+                  color: Colors.deepPurpleAccent,
+                  child: Text(
+                    temp,
+                    style: const TextStyle(
+                        fontSize: 30, fontWeight: FontWeight.w700),
+                  )),
               TextButton(
-                  onPressed: () => {
-                    apiTestNotifier.fetch()
-                  },
-                  child: Text("Api 호출"))
+                  onPressed: () => {apiTestNotifier.fetch()},
+                  child: const Text(
+                    "Api 호출",
+                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 28),
+                  )),
+              TextButton(
+                  onPressed: () => {apiTestNotifier.clear()},
+                  child: const Text(
+                    "Clear",
+                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 28),
+                  ))
             ],
           ),
         );
