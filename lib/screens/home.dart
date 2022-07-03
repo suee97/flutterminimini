@@ -41,7 +41,7 @@ Widget mainScreenContent(BuildContext context) {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           litteBox("Numbering", context, NumberingScreen()),
-          litteBox("QR", context, BarcelonaScreen()),
+          litteBox("Map", context, BarcelonaScreen()),
           litteBox("Provider\n(TODO)", context, TodoScreen()),
         ],
       ),
@@ -52,7 +52,7 @@ Widget mainScreenContent(BuildContext context) {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           litteBox("Api test", context, ApiTestScreen()),
-          litteBox("MVVM+API", context, BarcelonaScreen()),
+          litteBox("FCN&APNs", context, BarcelonaScreen()),
           litteBox("FC\nBarcelona", context, BarcelonaScreen()),
         ],
       )
