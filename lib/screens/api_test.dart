@@ -5,13 +5,13 @@ import 'package:provider/provider.dart';
 class ApiTestScreen extends StatelessWidget {
   const ApiTestScreen({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
 
     return Consumer<ApiTestNotifier>(
       builder: (context, apiTestNotifier, child) {
         String temp = apiTestNotifier.getApiRes();
+
         return Scaffold(
           appBar: AppBar(
             title: const Text("Api Test"),
@@ -37,7 +37,7 @@ class ApiTestScreen extends StatelessWidget {
                   child: const Text(
                     "Clear",
                     style: TextStyle(fontWeight: FontWeight.w400, fontSize: 28),
-                  ))
+                  )),
             ],
           ),
         );
