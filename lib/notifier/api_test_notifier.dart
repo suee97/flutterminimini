@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class ApiTestNotifier extends ChangeNotifier {
-  String _apiTitle = "no title";
+  String _apiTitle = "";
 
   String getApiRes() {
     return _apiTitle;

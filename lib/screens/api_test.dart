@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterminimini/notifier/api_test_notifier.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:provider/provider.dart';
 
 class ApiTestScreen extends StatelessWidget {
@@ -7,10 +8,10 @@ class ApiTestScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Consumer<ApiTestNotifier>(
       builder: (context, apiTestNotifier, child) {
         String temp = apiTestNotifier.getApiRes();
+        apiTestNotifier.fetch();
 
         return Scaffold(
           appBar: AppBar(
@@ -19,19 +20,15 @@ class ApiTestScreen extends StatelessWidget {
           body: Column(
             children: [
               Center(
-                  child: Text(
-                    temp,
-                    style: const TextStyle(
-                        fontSize: 30, fontWeight: FontWeight.w700),
-                  )),
-              TextButton(
-                  onPressed: () => {
-                    apiTestNotifier.fetch(),
-                  },
-                  child: const Text(
-                    "Api 호출",
-                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 28),
-                  )),
+                  child: temp.isEmpty
+                      ? Center(
+                          child: LoadingAnimationWidget.waveDots(color: Colors.red, size: 80),
+                        )
+                      : Text(
+                          temp,
+                          style: const TextStyle(
+                              fontSize: 30, fontWeight: FontWeight.w700),
+                        )),
               TextButton(
                   onPressed: () => {apiTestNotifier.clear()},
                   child: const Text(
