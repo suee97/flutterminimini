@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterminimini/screens/api_test.dart';
 import 'package:flutterminimini/screens/barcelona.dart';
+import 'package:flutterminimini/screens/map.dart';
 import 'package:flutterminimini/screens/todo.dart';
 import 'numbering.dart';
 
@@ -41,7 +42,7 @@ Widget mainScreenContent(BuildContext context) {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           litteBox("Numbering", context, NumberingScreen()),
-          litteBox("Map", context, BarcelonaScreen()),
+          litteBox("Map", context, MapScreen()),
           litteBox("Provider\n(TODO)", context, TodoScreen()),
         ],
       ),
