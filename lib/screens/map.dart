@@ -11,21 +11,37 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   late GoogleMapController mapController;
 
-  final LatLng _center = const LatLng(37.6324657, 127.0786713);
+  final LatLng startLocation = const LatLng(37.6324657, 127.0776803);
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
   }
 
+  final List<Marker> _markers = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _markers.add(Marker(
+        markerId: MarkerId("1"),
+        draggable: true,
+        onTap: () => {},
+        position: LatLng(37.6324657, 127.0776803)));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("google map"),
+        backgroundColor: Colors.transparent,
+      ),
       body: GoogleMap(
+        mapType: MapType.normal,
+        markers: Set.from(_markers),
         onMapCreated: _onMapCreated,
-        initialCameraPosition: CameraPosition(
-          target: _center,
-          zoom: 15.8
-        ),
+        initialCameraPosition:
+            CameraPosition(target: startLocation, zoom: 15.8),
       ),
     );
   }
