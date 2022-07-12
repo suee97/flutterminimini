@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterminimini/screens/api_test.dart';
 import 'package:flutterminimini/screens/barcelona.dart';
 import 'package:flutterminimini/screens/map.dart';
+import 'package:flutterminimini/screens/save_token.dart';
 import 'package:flutterminimini/screens/todo.dart';
 import 'numbering.dart';
 
@@ -56,7 +57,16 @@ Widget mainScreenContent(BuildContext context) {
           litteBox("FCN&APNs", context, BarcelonaScreen()),
           litteBox("FC\nBarcelona", context, BarcelonaScreen()),
         ],
-      )
+      ),
+      const SizedBox(
+        height: 20,
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          litteBox("save token", context, SaveTokenScreen()),
+        ],
+      ),
     ],
   );
 }

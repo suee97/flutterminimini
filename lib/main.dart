@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutterminimini/notifier/api_test_notifier.dart';
 import 'package:flutterminimini/player.dart';
 import 'package:flutterminimini/screens/home.dart';
 import 'package:flutterminimini/notifier/todo_notifier.dart';
 import 'package:provider/provider.dart';
 
-Future<void> main() async {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  /// save values
+  const storage = FlutterSecureStorage();
+  await storage.write(key: "key", value: "100");
+  String? value = await storage.read(key: "key");
+  print(value);
+  /// save values
+
   runApp(const MyApp());
 }
 
