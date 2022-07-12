@@ -5,7 +5,7 @@ import 'package:flutterminimini/screens/home.dart';
 import 'package:flutterminimini/notifier/todo_notifier.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+Future<void> main() async {
   runApp(const MyApp());
 }
 

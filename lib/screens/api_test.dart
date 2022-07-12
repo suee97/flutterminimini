@@ -10,7 +10,7 @@ class ApiTestScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<ApiTestNotifier>(
       builder: (context, apiTestNotifier, child) {
-        String temp = apiTestNotifier.getApiRes();
+        String apiResTitle = apiTestNotifier.getApiRes();
         apiTestNotifier.fetch();
 
         return Scaffold(
@@ -20,12 +20,12 @@ class ApiTestScreen extends StatelessWidget {
           body: Column(
             children: [
               Center(
-                  child: temp.isEmpty
+                  child: apiResTitle.isEmpty
                       ? Center(
-                          child: LoadingAnimationWidget.waveDots(color: Colors.red, size: 80),
+                          child: LoadingAnimationWidget.fallingDot(color: Colors.black, size: 80),
                         )
                       : Text(
-                          temp,
+                          apiResTitle,
                           style: const TextStyle(
                               fontSize: 30, fontWeight: FontWeight.w700),
                         )),
