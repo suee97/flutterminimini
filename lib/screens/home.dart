@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterminimini/screens/api_test.dart';
+import 'package:flutterminimini/screens/api_test_v2.dart';
 import 'package:flutterminimini/screens/barcelona.dart';
 import 'package:flutterminimini/screens/calendar.dart';
 import 'package:flutterminimini/screens/map.dart';
@@ -37,7 +38,7 @@ Widget mainScreenContent(BuildContext context) {
         ),
       ),
       const SizedBox(
-        height: 80,
+        height: 50,
       ),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -56,6 +57,17 @@ Widget mainScreenContent(BuildContext context) {
           litteBox("Api test", context, ApiTestScreen()),
           litteBox("Calendar", context, PlanScreen()),
           litteBox("FC\nBarcelona", context, BarcelonaScreen()),
+        ],
+      ),
+      const SizedBox(
+        height: 20,
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          litteBox("Api test v2", context, ApiTestV2()),
+          litteBox("", context, PlanScreen()),
+          litteBox("", context, BarcelonaScreen()),
         ],
       ),
       const SizedBox(
