@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   /// save values
   const storage = FlutterSecureStorage();
   await storage.write(key: "key", value: "100");

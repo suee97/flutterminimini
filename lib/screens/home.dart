@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterminimini/screens/api_test.dart';
 import 'package:flutterminimini/screens/barcelona.dart';
+import 'package:flutterminimini/screens/calendar.dart';
 import 'package:flutterminimini/screens/map.dart';
-import 'package:flutterminimini/screens/save_token.dart';
 import 'package:flutterminimini/screens/todo.dart';
 import 'numbering.dart';
 
@@ -54,18 +54,12 @@ Widget mainScreenContent(BuildContext context) {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           litteBox("Api test", context, ApiTestScreen()),
-          litteBox("FCN&APNs", context, BarcelonaScreen()),
+          litteBox("Calendar", context, PlanScreen()),
           litteBox("FC\nBarcelona", context, BarcelonaScreen()),
         ],
       ),
       const SizedBox(
         height: 20,
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          litteBox("save token", context, SaveTokenScreen()),
-        ],
       ),
     ],
   );

@@ -41,7 +41,7 @@ class _MapScreenState extends State<MapScreen> {
         markers: Set.from(_markers),
         onMapCreated: _onMapCreated,
         initialCameraPosition:
-            CameraPosition(target: startLocation, zoom: 15.8),
+            CameraPosition(target: startLocation, zoom: 17.5),
       ),
     );
   }
